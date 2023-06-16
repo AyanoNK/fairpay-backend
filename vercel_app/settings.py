@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'example'
+    'tables',
+    'products',
+    'waiters',
+    'visits',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -76,7 +82,16 @@ WSGI_APPLICATION = 'vercel_app.wsgi.app'
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
-DATABASES = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'neondb',
+        'USER': config('NEON_USERNAME'),
+        'PASSWORD': config('NEON_PASSWORD'),
+        'HOST': config('NEON_HOST'),
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
