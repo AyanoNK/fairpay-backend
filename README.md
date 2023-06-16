@@ -4,9 +4,33 @@
 
 This example shows how to use Django 4 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
 
-## Demo
+## Running Locally
 
-https://django-template.vercel.app/
+Create a local environment:
+
+```bash
+python3 -m venv venv
+```
+
+Activate the environment. This is the command for Linux and Mac OS:
+
+```bash
+source venv/bin/activate
+```
+
+Install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the Django application:
+
+```bash
+python manage.py runserver
+```
+
+Your Django application is now available at `http://localhost:8000`.
 
 ## How it Works
 
@@ -90,14 +114,6 @@ urlpatterns = [
 ```
 
 This example uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
-
-```bash
-python manage.py runserver
-```
-
-Your Django application is now available at `http://localhost:8000`.
 
 ## One-Click Deploy
 
